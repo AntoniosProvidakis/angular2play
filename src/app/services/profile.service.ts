@@ -1,26 +1,38 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
-// import { Profile } from '../components/profile.component';
+import { Profile } from '../components/profile.component';
 
 @Injectable()
 export class ProfileService {
-  getProfiles() {
-    return [
-      {
-        firstname: "Antonis",
-        lastname: "Providakis",
-        email: "asd@adff.com",
-        pic: "https://randomuser.me/api/portraits/men/83.jpg"
-      },{
-        firstname: "Mitsos",
-        lastname: "Mamra",
-        email: "mitsakos@gmail.com",
-        pic: "https://randomuser.me/api/portraits/men/83.jpg"
-      },{
-        firstname: "Kwna",
-        lastname: "Pit",
-        email: "kwna@yahoo.com",
-        pic: "https://randomuser.me/api/portraits/men/83.jpg"
-      }];
+
+  private profilesUrl = 'https://randomuser.me/api/?results=10';  // URL to web API
+
+  constructor(private http: Http) { }
+
+
+  getProfiles(): Observable<any[]> {
+    return this.http.get(this.profilesUrl)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  private extractData(res: Response) {
+    return res.json().results;
+  }
+
+   private handleError (error: Response | any) {
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
 }

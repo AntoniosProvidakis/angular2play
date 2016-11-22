@@ -1,5 +1,9 @@
 import {Component} from '@angular/core';
 
+// Add the RxJS Observable operators.
+import './components/rxjs-operators';
+
+
 @Component({
   selector: 'app',
   templateUrl: './app.component.html',
