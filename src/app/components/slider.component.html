@@ -1,0 +1,6 @@
+<!-- change this to fancier slider-->
+<div class="sliderContainer">
+    <label for="slider">{{min}}</label>
+    <input id="slider" type="range" [min]="min" [max]="max" [value]="currentValue" (change)="changeCurrentValue($event)">
+    <label for="slider">{{max}}</label>
+</div>

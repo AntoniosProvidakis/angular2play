@@ -1,0 +1,35 @@
+.profile {
+    /*height: 200px;*/
+    margin-bottom: 20px;
+}
+
+.profile-top {
+    height: 75px;
+    background-color: #008893;
+    text-align: center;
+}
+
+
+.profile-avatar {
+    position: relative;
+    top: 20px;
+}
+
+.profile-avatar img {
+  width:6rem;
+  height:6rem;
+  border-radius:50%;
+  /*display: block;*/
+  box-shadow:0 0 .0625rem rgba(0,0,0,.7);
+}
+
+.profile-bottom {
+    /*height: 100%;*/
+    background-color: white;
+}
+
+.info-container {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    text-align: center;
+}

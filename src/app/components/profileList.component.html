@@ -1,0 +1,22 @@
+<div>
+    <!--<ul>
+        <li *ngFor="let profile of profiles; let i = index">
+            {{i}} : {{profile.firstname}}
+        </li>
+    </ul>-->
+
+    <profile *ngFor="let profile of profiles;"
+        [firstname]="profile.firstname"
+        [lastname]="profile.lastname"
+        [email]="profile.email"
+        [pic]="profile.pic">
+    </profile>
+                <!--<profile firstname="asdsad"
+                    lastname="asjfjsdkfj"
+                    email="@@@"
+                    pic="asd">
+                </profile>-->
+
+</div>
+
+<span>profileList: {{limit}}</span>

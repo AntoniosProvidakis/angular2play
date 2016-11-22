@@ -1,0 +1,5 @@
+<div class="container">
+    <slider #slider [max]="sliderMaxValue" [currentValue]="sliderCurrentValue"></slider>
+    <!--<slider [max]="10" [currentValue]="1" (limitChanged)="sliderCurrentValue = $event"></slider>-->
+    <profileList [limit]="slider.currentValue"></profileList>
+</div>

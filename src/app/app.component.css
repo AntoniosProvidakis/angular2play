@@ -1,0 +1,8 @@
+body{
+    background-color: #eee;
+}
+
+.container {
+    margin: 20px auto 10px;
+    width: 500px;
+}
